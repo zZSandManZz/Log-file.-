@@ -1,0 +1,1044 @@
+#
+# There is insufficient memory for the Java Runtime Environment to continue.
+# Native memory allocation (mmap) failed to map 1237319680 bytes for committing reserved memory.
+# Possible reasons:
+#   The system is out of physical RAM or swap space
+#   In 32 bit mode, the process size limit was hit
+# Possible solutions:
+#   Reduce memory load on the system
+#   Increase physical memory or swap space
+#   Check if swap backing store is full
+#   Use 64 bit Java on a 64 bit OS
+#   Decrease Java heap size (-Xmx/-Xms)
+#   Decrease number of Java threads
+#   Decrease Java thread stack sizes (-Xss)
+#   Set larger code cache with -XX:ReservedCodeCacheSize=
+# This output file may be truncated or incomplete.
+#
+#  Out of Memory Error (os_linux.cpp:2640), pid=32757, tid=0x000076776fda6700
+#
+# JRE version: Java(TM) SE Runtime Environment (8.0_181-b13) (build 1.8.0_181-b13)
+# Java VM: Java HotSpot(TM) 64-Bit Server VM (25.181-b13 mixed mode linux-amd64 compressed oops)
+# Failed to write core dump. Core dumps have been disabled. To enable core dumping, try "ulimit -c unlimited" before starting Java again
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x0000767b880fb800):  VMThread [stack: 0x000076776fca6000,0x000076776fda7000] [id=32762]
+
+Stack: [0x000076776fca6000,0x000076776fda7000],  sp=0x000076776fda4fa0,  free space=1019k
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+V  [libjvm.so+0xad21aa]  VMError::report_and_die()+0x2ba
+V  [libjvm.so+0x5022db]  report_vm_out_of_memory(char const*, int, unsigned long, VMErrorType, char const*)+0x8b
+V  [libjvm.so+0x92fe33]  os::Linux::commit_memory_impl(char*, unsigned long, bool)+0x123
+V  [libjvm.so+0x930059]  os::pd_commit_memory(char*, unsigned long, unsigned long, bool)+0x29
+V  [libjvm.so+0x9272ba]  os::commit_memory(char*, unsigned long, unsigned long, bool)+0x2a
+V  [libjvm.so+0x99d2e3]  PSVirtualSpace::expand_by(unsigned long)+0x53
+V  [libjvm.so+0x99e6e8]  PSYoungGen::resize_generation(unsigned long, unsigned long)+0xf8
+V  [libjvm.so+0x99d842]  PSYoungGen::resize(unsigned long, unsigned long)+0x22
+V  [libjvm.so+0x99ab1b]  PSScavenge::invoke_no_policy()+0xf3b
+V  [libjvm.so+0x99b2a1]  PSScavenge::invoke()+0x41
+V  [libjvm.so+0x951d70]  ParallelScavengeHeap::failed_mem_allocate(unsigned long)+0x70
+V  [libjvm.so+0xad3c27]  VM_ParallelGCFailedAllocation::doit()+0x97
+V  [libjvm.so+0xadb745]  VM_Operation::evaluate()+0x55
+V  [libjvm.so+0xad9b0a]  VMThread::evaluate_operation(VM_Operation*)+0xba
+V  [libjvm.so+0xad9e8e]  VMThread::loop()+0x1ce
+V  [libjvm.so+0xada300]  VMThread::run()+0x70
+V  [libjvm.so+0x930198]  java_start(Thread*)+0x108
+
+VM_Operation (0x000076776cdc7d80): ParallelGCFailedAllocation, mode: safepoint, requested by thread 0x0000767b8aa60800
+
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+  0x00007676dbd49800 JavaThread "DE Contributors DL Thread" [_thread_blocked, id=1139, stack(0x00007676cac22000,0x00007676caca3000)]
+  0x00007676b2379800 JavaThread "Java2D Disposer" daemon [_thread_blocked, id=1073, stack(0x000076776c742000,0x000076776c7c3000)]
+  0x00007676d8840800 JavaThread "process reaper" daemon [_thread_blocked, id=812, stack(0x000076776cdf5000,0x000076776ce76000)]
+  0x00007676d8001000 JavaThread "Server console handler" daemon [_thread_in_native, id=731, stack(0x000076776cc50000,0x000076776ccd1000)]
+  0x0000767b8800a800 JavaThread "DestroyJavaVM" [_thread_blocked, id=32758, stack(0x0000767b90ef2000,0x0000767b90ff3000)]
+  0x0000767b8aa60800 JavaThread "Server thread" [_thread_blocked, id=730, stack(0x000076776cd4e000,0x000076776cdcf000)]
+  0x0000767b8aa5e800 JavaThread "Server Infinisleeper" daemon [_thread_blocked, id=729, stack(0x000076776ceae000,0x000076776cf2f000)]
+  0x0000767b8aa1f800 JavaThread "Snooper Timer" daemon [_thread_blocked, id=728, stack(0x000076776cf4a000,0x000076776cfcb000)]
+  0x0000767b8814f800 JavaThread "Service Thread" daemon [_thread_blocked, id=510, stack(0x000076776f27a000,0x000076776f2fb000)]
+  0x0000767b88144800 JavaThread "C1 CompilerThread3" daemon [_thread_blocked, id=509, stack(0x000076776f36a000,0x000076776f46b000)]
+  0x0000767b88142000 JavaThread "C2 CompilerThread2" daemon [_thread_blocked, id=508, stack(0x000076776f524000,0x000076776f625000)]
+  0x0000767b88140800 JavaThread "C2 CompilerThread1" daemon [_thread_blocked, id=507, stack(0x000076776f633000,0x000076776f734000)]
+  0x0000767b8813d800 JavaThread "C2 CompilerThread0" daemon [_thread_blocked, id=506, stack(0x000076776f7b8000,0x000076776f8b9000)]
+  0x0000767b8813c000 JavaThread "Signal Dispatcher" daemon [_thread_blocked, id=505, stack(0x000076777405e000,0x00007677740df000)]
+  0x0000767b88107800 JavaThread "Finalizer" daemon [_thread_blocked, id=32767, stack(0x000076776fb3c000,0x000076776fbbd000)]
+  0x0000767b88105000 JavaThread "Reference Handler" daemon [_thread_blocked, id=32766, stack(0x0000767b8c01e000,0x0000767b8c09f000)]
+
+Other Threads:
+=>0x0000767b880fb800 VMThread [stack: 0x000076776fca6000,0x000076776fda7000] [id=32762]
+  0x0000767b88154800 WatcherThread [stack: 0x000076776f094000,0x000076776f195000] [id=511]
+
+VM state:at safepoint (normal execution)
+
+VM Mutex/Monitor currently owned by a thread:  ([mutex/lock_event])
+[0x0000767b88006bd0] Threads_lock - owner thread: 0x0000767b880fb800
+[0x0000767b880070d0] Heap_lock - owner thread: 0x0000767b8aa60800
+
+Heap:
+ PSYoungGen      total 2981376K, used 180725K [0x0000767a23b00000, 0x0000767aeb580000, 0x0000767b79000000)
+  eden space 2800640K, 0% used [0x0000767a23b00000,0x0000767a23b00000,0x0000767acea00000)
+  from space 180736K, 99% used [0x0000767ad5480000,0x0000767ae04fd750,0x0000767ae0500000)
+  to   space 97792K, 0% used [0x0000767ae5600000,0x0000767ae5600000,0x0000767aeb580000)
+ ParOldGen       total 889344K, used 723667K [0x0000767779000000, 0x00007677af480000, 0x0000767a23b00000)
+  object space 889344K, 81% used [0x0000767779000000,0x00007677a52b4e28,0x00007677af480000)
+ Metaspace       used 77207K, capacity 78042K, committed 78720K, reserved 1116160K
+  class space    used 12012K, capacity 12321K, committed 12416K, reserved 1048576K
+
+Card table byte_map: [0x0000767776dff000,0x0000767778e00000] byte_map_base: 0x0000763c3b237000
+
+Marking Bits: (ParMarkBitMap*) 0x0000767b904be0a0
+ Begin Bits: [0x0000767748000000, 0x0000767758000000)
+ End Bits:   [0x0000767758000000, 0x0000767768000000)
+
+Polling page: 0x0000767b910e6000
+
+CodeCache: size=245760Kb used=27100Kb max_used=27100Kb free=218659Kb
+ bounds [0x0000767b79000000, 0x0000767b7aaa0000, 0x0000767b88000000]
+ total_blobs=7686 nmethods=6943 adapters=655
+ compilation: enabled
+
+Compilation events (10 events):
+Event: 48.017 Thread 0x0000767b88144800 nmethod 9584 0x0000767b7aa94350 code [0x0000767b7aa945a0, 0x0000767b7aa95528]
+Event: 48.044 Thread 0x0000767b88144800 9585       3       com.google.common.collect.MapMakerInternalMap::expires (20 bytes)
+Event: 48.044 Thread 0x0000767b88144800 nmethod 9585 0x0000767b7aa95bd0 code [0x0000767b7aa95d40, 0x0000767b7aa961f0]
+Event: 48.044 Thread 0x0000767b88144800 9586       3       com.google.common.collect.MapMakerInternalMap::expiresAfterWrite (15 bytes)
+Event: 48.044 Thread 0x0000767b88144800 nmethod 9586 0x0000767b7aa962d0 code [0x0000767b7aa96440, 0x0000767b7aa96610]
+Event: 48.049 Thread 0x0000767b88144800 9587       1       sun.reflect.AccessorGenerator::sub (5 bytes)
+Event: 48.049 Thread 0x0000767b88144800 nmethod 9587 0x0000767b7a881990 code [0x0000767b7a881ae0, 0x0000767b7a881bd0]
+Event: 48.049 Thread 0x0000767b88144800 9588       3       sun.reflect.ClassFileAssembler::opc_new (16 bytes)
+Event: 48.050 Thread 0x0000767b88144800 nmethod 9588 0x0000767b7aa96690 code [0x0000767b7aa96860, 0x0000767b7aa96e68]
+Event: 48.055 Thread 0x0000767b8813d800 9589       4       com.brandon3055.brandonscore.asm.ClassTransformer::transform (10 bytes)
+
+GC Heap History (10 events):
+Event: 29.869 GC heap after
+Heap after GC invocations=11 (full 2):
+ PSYoungGen      total 1742848K, used 80450K [0x0000767a23b00000, 0x0000767abce80000, 0x0000767b79000000)
+  eden space 1560064K, 0% used [0x0000767a23b00000,0x0000767a23b00000,0x0000767a82e80000)
+  from space 182784K, 44% used [0x0000767a82e80000,0x0000767a87d108f8,0x0000767a8e100000)
+  to   space 172544K, 0% used [0x0000767ab2600000,0x0000767ab2600000,0x0000767abce80000)
+ ParOldGen       total 706048K, used 213414K [0x0000767779000000, 0x00007677a4180000, 0x0000767a23b00000)
+  object space 706048K, 30% used [0x0000767779000000,0x0000767786069868,0x00007677a4180000)
+ Metaspace       used 43634K, capacity 43930K, committed 44416K, reserved 1087488K
+  class space    used 6094K, capacity 6197K, committed 6272K, reserved 1048576K
+}
+Event: 33.337 GC heap before
+{Heap before GC invocations=12 (full 2):
+ PSYoungGen      total 1742848K, used 1640514K [0x0000767a23b00000, 0x0000767abce80000, 0x0000767b79000000)
+  eden space 1560064K, 100% used [0x0000767a23b00000,0x0000767a82e80000,0x0000767a82e80000)
+  from space 182784K, 44% used [0x0000767a82e80000,0x0000767a87d108f8,0x0000767a8e100000)
+  to   space 172544K, 0% used [0x0000767ab2600000,0x0000767ab2600000,0x0000767abce80000)
+ ParOldGen       total 706048K, used 213414K [0x0000767779000000, 0x00007677a4180000, 0x0000767a23b00000)
+  object space 706048K, 30% used [0x0000767779000000,0x0000767786069868,0x00007677a4180000)
+ Metaspace       used 54624K, capacity 55112K, committed 55424K, reserved 1097728K
+  class space    used 7921K, capacity 8052K, committed 8064K, reserved 1048576K
+Event: 33.422 GC heap after
+Heap after GC invocations=12 (full 2):
+ PSYoungGen      total 2314240K, used 129887K [0x0000767a23b00000, 0x0000767abcc80000, 0x0000767b79000000)
+  eden space 2143744K, 0% used [0x0000767a23b00000,0x0000767a23b00000,0x0000767aa6880000)
+  from space 170496K, 76% used [0x0000767ab2600000,0x0000767aba4d7e00,0x0000767abcc80000)
+  to   space 182272K, 0% used [0x0000767aa6880000,0x0000767aa6880000,0x0000767ab1a80000)
+ ParOldGen       total 706048K, used 213422K [0x0000767779000000, 0x00007677a4180000, 0x0000767a23b00000)
+  object space 706048K, 30% used [0x0000767779000000,0x000076778606b868,0x00007677a4180000)
+ Metaspace       used 54624K, capacity 55112K, committed 55424K, reserved 1097728K
+  class space    used 7921K, capacity 8052K, committed 8064K, reserved 1048576K
+}
+Event: 34.429 GC heap before
+{Heap before GC invocations=13 (full 2):
+ PSYoungGen      total 2314240K, used 639542K [0x0000767a23b00000, 0x0000767abcc80000, 0x0000767b79000000)
+  eden space 2143744K, 23% used [0x0000767a23b00000,0x0000767a42cb5d88,0x0000767aa6880000)
+  from space 170496K, 76% used [0x0000767ab2600000,0x0000767aba4d7e00,0x0000767abcc80000)
+  to   space 182272K, 0% used [0x0000767aa6880000,0x0000767aa6880000,0x0000767ab1a80000)
+ ParOldGen       total 706048K, used 213422K [0x0000767779000000, 0x00007677a4180000, 0x0000767a23b00000)
+  object space 706048K, 30% used [0x0000767779000000,0x000076778606b868,0x00007677a4180000)
+ Metaspace       used 58299K, capacity 58830K, committed 59096K, reserved 1099776K
+  class space    used 8393K, capacity 8565K, committed 8576K, reserved 1048576K
+Event: 34.490 GC heap after
+Heap after GC invocations=13 (full 2):
+ PSYoungGen      total 2326016K, used 17257K [0x0000767a23b00000, 0x0000767af0980000, 0x0000767b79000000)
+  eden space 2143744K, 0% used [0x0000767a23b00000,0x0000767a23b00000,0x0000767aa6880000)
+  from space 182272K, 9% used [0x0000767aa6880000,0x0000767aa795a730,0x0000767ab1a80000)
+  to   space 183808K, 0% used [0x0000767ae5600000,0x0000767ae5600000,0x0000767af0980000)
+ ParOldGen       total 706048K, used 301976K [0x0000767779000000, 0x00007677a4180000, 0x0000767a23b00000)
+  object space 706048K, 42% used [0x0000767779000000,0x000076778b6e6308,0x00007677a4180000)
+ Metaspace       used 58299K, capacity 58830K, committed 59096K, reserved 1099776K
+  class space    used 8393K, capacity 8565K, committed 8576K, reserved 1048576K
+}
+Event: 34.490 GC heap before
+{Heap before GC invocations=14 (full 3):
+ PSYoungGen      total 2326016K, used 17257K [0x0000767a23b00000, 0x0000767af0980000, 0x0000767b79000000)
+  eden space 2143744K, 0% used [0x0000767a23b00000,0x0000767a23b00000,0x0000767aa6880000)
+  from space 182272K, 9% used [0x0000767aa6880000,0x0000767aa795a730,0x0000767ab1a80000)
+  to   space 183808K, 0% used [0x0000767ae5600000,0x0000767ae5600000,0x0000767af0980000)
+ ParOldGen       total 706048K, used 301976K [0x0000767779000000, 0x00007677a4180000, 0x0000767a23b00000)
+  object space 706048K, 42% used [0x0000767779000000,0x000076778b6e6308,0x00007677a4180000)
+ Metaspace       used 58299K, capacity 58830K, committed 59096K, reserved 1099776K
+  class space    used 8393K, capacity 8565K, committed 8576K, reserved 1048576K
+Event: 34.997 GC heap after
+Heap after GC invocations=14 (full 3):
+ PSYoungGen      total 2326016K, used 0K [0x0000767a23b00000, 0x0000767af0980000, 0x0000767b79000000)
+  eden space 2143744K, 0% used [0x0000767a23b00000,0x0000767a23b00000,0x0000767aa6880000)
+  from space 182272K, 0% used [0x0000767aa6880000,0x0000767aa6880000,0x0000767ab1a80000)
+  to   space 183808K, 0% used [0x0000767ae5600000,0x0000767ae5600000,0x0000767af0980000)
+ ParOldGen       total 889344K, used 275392K [0x0000767779000000, 0x00007677af480000, 0x0000767a23b00000)
+  object space 889344K, 30% used [0x0000767779000000,0x0000767789cf0078,0x00007677af480000)
+ Metaspace       used 58299K, capacity 58830K, committed 59096K, reserved 1099776K
+  class space    used 8393K, capacity 8565K, committed 8576K, reserved 1048576K
+}
+Event: 40.075 GC heap before
+{Heap before GC invocations=15 (full 3):
+ PSYoungGen      total 2326016K, used 2143744K [0x0000767a23b00000, 0x0000767af0980000, 0x0000767b79000000)
+  eden space 2143744K, 100% used [0x0000767a23b00000,0x0000767aa6880000,0x0000767aa6880000)
+  from space 182272K, 0% used [0x0000767aa6880000,0x0000767aa6880000,0x0000767ab1a80000)
+  to   space 183808K, 0% used [0x0000767ae5600000,0x0000767ae5600000,0x0000767af0980000)
+ ParOldGen       total 889344K, used 275392K [0x0000767779000000, 0x00007677af480000, 0x0000767a23b00000)
+  object space 889344K, 30% used [0x0000767779000000,0x0000767789cf0078,0x00007677af480000)
+ Metaspace       used 71525K, capacity 72256K, committed 72832K, reserved 1110016K
+  class space    used 11106K, capacity 11356K, committed 11392K, reserved 1048576K
+Event: 40.154 GC heap after
+Heap after GC invocations=15 (full 3):
+ PSYoungGen      total 2898432K, used 97790K [0x0000767a23b00000, 0x0000767aeb580000, 0x0000767b79000000)
+  eden space 2800640K, 0% used [0x0000767a23b00000,0x0000767a23b00000,0x0000767acea00000)
+  from space 97792K, 99% used [0x0000767ae5600000,0x0000767aeb57f8e8,0x0000767aeb580000)
+  to   space 180736K, 0% used [0x0000767ad5480000,0x0000767ad5480000,0x0000767ae0500000)
+ ParOldGen       total 889344K, used 275400K [0x0000767779000000, 0x00007677af480000, 0x0000767a23b00000)
+  object space 889344K, 30% used [0x0000767779000000,0x0000767789cf2078,0x00007677af480000)
+ Metaspace       used 71525K, capacity 72256K, committed 72832K, reserved 1110016K
+  class space    used 11106K, capacity 11356K, committed 11392K, reserved 1048576K
+}
+Event: 48.056 GC heap before
+{Heap before GC invocations=16 (full 3):
+ PSYoungGen      total 2898432K, used 2898430K [0x0000767a23b00000, 0x0000767aeb580000, 0x0000767b79000000)
+  eden space 2800640K, 100% used [0x0000767a23b00000,0x0000767acea00000,0x0000767acea00000)
+  from space 97792K, 99% used [0x0000767ae5600000,0x0000767aeb57f8e8,0x0000767aeb580000)
+  to   space 180736K, 0% used [0x0000767ad5480000,0x0000767ad5480000,0x0000767ae0500000)
+ ParOldGen       total 889344K, used 275400K [0x0000767779000000, 0x00007677af480000, 0x0000767a23b00000)
+  object space 889344K, 30% used [0x0000767779000000,0x0000767789cf2078,0x00007677af480000)
+ Metaspace       used 77207K, capacity 78042K, committed 78720K, reserved 1116160K
+  class space    used 12012K, capacity 12321K, committed 12416K, reserved 1048576K
+
+Deoptimization events (10 events):
+Event: 45.458 Thread 0x0000767b8aa60800 Uncommon trap: reason=unstable_if action=reinterpret pc=0x0000767b7aa0c3c4 method=com.mia.props.DecoModelMetadata.wrapperCallback()V @ 75
+Event: 47.494 Thread 0x0000767b8aa60800 Uncommon trap: reason=class_check action=maybe_recompile pc=0x0000767b7aa2f1e8 method=com.mia.craftstudio.minecraft.CraftStudioModelWrapper.<init>(Lcom/mia/craftstudio/minecraft/ModelMetadata;)V @ 97
+Event: 47.510 Thread 0x0000767b8aa60800 Uncommon trap: reason=unstable_if action=reinterpret pc=0x0000767b7972521c method=java.nio.Bits.getInt(Ljava/nio/ByteBuffer;IZ)I @ 1
+Event: 47.707 Thread 0x0000767b8aa60800 Uncommon trap: reason=unstable_if action=reinterpret pc=0x0000767b7a25be44 method=sun.reflect.annotation.AnnotationInvocationHandler.invoke(Ljava/lang/Object;Ljava/lang/reflect/Method;[Ljava/lang/Object;)Ljava/lang/Object; @ 263
+Event: 47.851 Thread 0x0000767b8aa60800 Uncommon trap: reason=speculate_class_check action=maybe_recompile pc=0x0000767b79d35768 method=java.util.RegularEnumSet.contains(Ljava/lang/Object;)Z @ 38
+Event: 47.852 Thread 0x0000767b8aa60800 Uncommon trap: reason=speculate_class_check action=maybe_recompile pc=0x0000767b79d35768 method=java.util.RegularEnumSet.contains(Ljava/lang/Object;)Z @ 38
+Event: 47.852 Thread 0x0000767b8aa60800 Uncommon trap: reason=class_check action=maybe_recompile pc=0x0000767b795dafd4 method=com.google.common.collect.RegularImmutableBiMap.get(Ljava/lang/Object;)Ljava/lang/Object; @ 7
+Event: 47.852 Thread 0x0000767b8aa60800 Uncommon trap: reason=class_check action=maybe_recompile pc=0x0000767b795dafd4 method=com.google.common.collect.RegularImmutableBiMap.get(Ljava/lang/Object;)Ljava/lang/Object; @ 7
+Event: 47.852 Thread 0x0000767b8aa60800 Uncommon trap: reason=class_check action=maybe_recompile pc=0x0000767b795dafd4 method=com.google.common.collect.RegularImmutableBiMap.get(Ljava/lang/Object;)Ljava/lang/Object; @ 7
+Event: 47.852 Thread 0x0000767b8aa60800 Uncommon trap: reason=class_check action=maybe_recompile pc=0x0000767b795dafd4 method=com.google.common.collect.RegularImmutableBiMap.get(Ljava/lang/Object;)Ljava/lang/Object; @ 7
+
+Classes redefined (0 events):
+No events
+
+Internal exceptions (10 events):
+Event: 27.024 Thread 0x0000767b8aa60800 Exception <a 'java/io/FileNotFoundException'> (0x0000767a3b093718) thrown at [/HUDSON/workspace/8-2-build-linux-amd64/jdk8u181/11358/hotspot/src/share/vm/prims/jni.cpp, line 709]
+Event: 27.024 Thread 0x0000767b8aa60800 Exception <a 'java/io/FileNotFoundException'> (0x0000767a3b094628) thrown at [/HUDSON/workspace/8-2-build-linux-amd64/jdk8u181/11358/hotspot/src/share/vm/prims/jni.cpp, line 709]
+Event: 31.268 Thread 0x0000767b8aa60800 Implicit null exception at 0x0000767b7a1cf92d to 0x0000767b7a1cfb65
+Event: 32.102 Thread 0x00007676c2c9e800 Implicit null exception at 0x0000767b7a3ea7dc to 0x0000767b7a3ea825
+Event: 32.178 Thread 0x00007676c2c9e800 Implicit null exception at 0x0000767b7a3a7cba to 0x0000767b7a3a7e1b
+Event: 32.403 Thread 0x00007676c2c9e800 Implicit null exception at 0x0000767b7a45aeb8 to 0x0000767b7a45aff5
+Event: 32.403 Thread 0x00007676c2c9e800 Implicit null exception at 0x0000767b793c51f9 to 0x0000767b793c537d
+Event: 36.801 Thread 0x0000767b8aa60800 Exception <a 'java/lang/NoSuchMethodError': java.lang.Object.lambda$comparing$77a9974f$1(Ljava/util/function/Function;Ljava/lang/Object;Ljava/lang/Object;)I> (0x0000767a556f7ec0) thrown at [/HUDSON/workspace/8-2-build-linux-amd64/jdk8u181/11358/hotspot/sr
+Event: 37.592 Thread 0x0000767b8aa60800 Exception <a 'java/security/PrivilegedActionException'> (0x0000767a6ad4ba28) thrown at [/HUDSON/workspace/8-2-build-linux-amd64/jdk8u181/11358/hotspot/src/share/vm/prims/jvm.cpp, line 1435]
+Event: 47.850 Thread 0x0000767b8aa60800 Exception <a 'java/lang/NoSuchMethodError': java.lang.Object.lambda$identity$2(Ljava/lang/Object;)Ljava/lang/Object;> (0x0000767ac9d98d88) thrown at [/HUDSON/workspace/8-2-build-linux-amd64/jdk8u181/11358/hotspot/src/share/vm/interpreter/linkResolver.cpp,
+
+Events (10 events):
+Event: 48.050 loading class com/enderio/core/common/config/TypeAdapterBase done
+Event: 48.053 loading class com/enderio/core/common/config/TypeAdapterBase$1
+Event: 48.053 loading class com/enderio/core/common/config/TypeAdapterBase$1 done
+Event: 48.053 loading class com/enderio/core/common/config/TypeAdapterBase$2
+Event: 48.053 loading class com/enderio/core/common/config/TypeAdapterBase$2 done
+Event: 48.054 loading class com/enderio/core/common/config/TypeAdapterBase$3
+Event: 48.054 loading class com/enderio/core/common/config/TypeAdapterBase$3 done
+Event: 48.055 loading class com/enderio/core/common/config/TypeAdapterBase$4
+Event: 48.055 loading class com/enderio/core/common/config/TypeAdapterBase$4 done
+Event: 48.056 Executing VM operation: ParallelGCFailedAllocation
+
+
+Dynamic libraries:
+00400000-00401000 r-xp 00000000 09:02 151893                             /usr/lib/jvm/java-8-oracle/jre/bin/java
+00600000-00601000 rw-p 00000000 09:02 151893                             /usr/lib/jvm/java-8-oracle/jre/bin/java
+00601000-0200d000 ---p 00000000 00:00 0 
+0200d000-0202e000 rw-p 00000000 00:00 0                                  [heap]
+7676b0000000-7676b29c6000 rw-p 00000000 00:00 0 
+7676b29c6000-7676b4000000 ---p 00000000 00:00 0 
+7676b8000000-7676b8021000 rw-p 00000000 00:00 0 
+7676b8021000-7676bc000000 ---p 00000000 00:00 0 
+7676bc000000-7676bc021000 rw-p 00000000 00:00 0 
+7676bc021000-7676c0000000 ---p 00000000 00:00 0 
+7676c0000000-7676c3ffa000 rw-p 00000000 00:00 0 
+7676c3ffa000-7676c4000000 ---p 00000000 00:00 0 
+7676c4000000-7676c4138000 rw-p 00000000 00:00 0 
+7676c4138000-7676c8000000 ---p 00000000 00:00 0 
+7676c8be7000-7676c8ca7000 rw-p 00000000 00:00 0 
+7676c8ca7000-7676c8de7000 ---p 00000000 00:00 0 
+7676c8de7000-7676c8fe7000 rw-p 00000000 00:00 0 
+7676c8fe7000-7676c91e7000 rw-p 00000000 00:00 0 
+7676c91e7000-7676c93e7000 rw-p 00000000 00:00 0 
+7676c93e7000-7676c95e7000 rw-p 00000000 00:00 0 
+7676c95e7000-7676c97e7000 rw-p 00000000 00:00 0 
+7676c97e7000-7676c99e7000 rw-p 00000000 00:00 0 
+7676c99e7000-7676c9be7000 rw-p 00000000 00:00 0 
+7676c9be7000-7676c9c2c000 r-xp 00000000 09:03 47203202                   /home/minecraft/multicraft/servers/server46738/OpenComputersMod-1.6.2.7-lua53-native.64.so
+7676c9c2c000-7676c9e2c000 ---p 00045000 09:03 47203202                   /home/minecraft/multicraft/servers/server46738/OpenComputersMod-1.6.2.7-lua53-native.64.so
+7676c9e2c000-7676c9e2e000 rw-p 00045000 09:03 47203202                   /home/minecraft/multicraft/servers/server46738/OpenComputersMod-1.6.2.7-lua53-native.64.so
+7676c9e2e000-7676c9e6e000 r-xp 00000000 09:03 47203196                   /home/minecraft/multicraft/servers/server46738/OpenComputersMod-1.6.2.7-lua52-native.64.so (deleted)
+7676c9e6e000-7676ca06d000 ---p 00040000 09:03 47203196                   /home/minecraft/multicraft/servers/server46738/OpenComputersMod-1.6.2.7-lua52-native.64.so (deleted)
+7676ca06d000-7676ca06f000 rw-p 0003f000 09:03 47203196                   /home/minecraft/multicraft/servers/server46738/OpenComputersMod-1.6.2.7-lua52-native.64.so (deleted)
+7676ca06f000-7676ca26f000 rw-p 00000000 00:00 0 
+7676ca26f000-7676ca46f000 rw-p 00000000 00:00 0 
+7676ca46f000-7676ca472000 ---p 00000000 00:00 0 
+7676ca472000-7676ca4f0000 rw-p 00000000 00:00 0 
+7676ca5db000-7676ca7db000 rw-p 00000000 00:00 0 
+7676ca7db000-7676ca9db000 rw-p 00000000 00:00 0 
+7676ca9db000-7676caa0d000 r-xp 00000000 09:02 152091                     /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libsunec.so
+7676caa0d000-7676cac0c000 ---p 00032000 09:02 152091                     /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libsunec.so
+7676cac0c000-7676cac12000 rw-p 00031000 09:02 152091                     /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libsunec.so
+7676cac12000-7676cac22000 rw-p 00000000 00:00 0 
+7676cac22000-7676cac25000 ---p 00000000 00:00 0 
+7676cac25000-7676caca3000 rw-p 00000000 00:00 0 
+7676cad75000-7676cad89000 r-xp 00000000 09:02 916126                     /lib/x86_64-linux-gnu/libresolv-2.19.so
+7676cad89000-7676caf88000 ---p 00014000 09:02 916126                     /lib/x86_64-linux-gnu/libresolv-2.19.so
+7676caf88000-7676caf89000 r--p 00013000 09:02 916126                     /lib/x86_64-linux-gnu/libresolv-2.19.so
+7676caf89000-7676caf8a000 rw-p 00014000 09:02 916126                     /lib/x86_64-linux-gnu/libresolv-2.19.so
+7676caf8a000-7676caf8c000 rw-p 00000000 00:00 0 
+7676caf8c000-7676caf91000 r-xp 00000000 09:02 916120                     /lib/x86_64-linux-gnu/libnss_dns-2.19.so
+7676caf91000-7676cb190000 ---p 00005000 09:02 916120                     /lib/x86_64-linux-gnu/libnss_dns-2.19.so
+7676cb190000-7676cb191000 r--p 00004000 09:02 916120                     /lib/x86_64-linux-gnu/libnss_dns-2.19.so
+7676cb191000-7676cb192000 rw-p 00005000 09:02 916120                     /lib/x86_64-linux-gnu/libnss_dns-2.19.so
+7676cb192000-7676cb197000 r--s 0003f000 09:02 152029                     /usr/lib/jvm/java-8-oracle/jre/lib/ext/sunjce_provider.jar
+7676cb197000-7676cb199000 r--s 00009000 09:02 152019                     /usr/lib/jvm/java-8-oracle/jre/lib/ext/sunec.jar
+7676cb199000-7676cb1b5000 r--s 00393000 09:02 152021                     /usr/lib/jvm/java-8-oracle/jre/lib/ext/cldrdata.jar
+7676cb1b5000-7676cb1bf000 r--s 00116000 09:02 152028                     /usr/lib/jvm/java-8-oracle/jre/lib/ext/localedata.jar
+7676cb1bf000-7676cb3bf000 rw-p 00000000 00:00 0 
+7676cb3bf000-7676cb3c1000 r--s 00024000 09:03 49023753                   /home/minecraft/multicraft/servers/server46738/mods/UniDict-1.10.2-2.9b.jar
+7676cb3c1000-7676cb3c2000 r--s 00005000 09:03 49023815                   /home/minecraft/multicraft/servers/server46738/mods/xprings-1.10-1.3.0.jar
+7676cb3c2000-7676cb3c4000 r--s 00007000 09:03 49023760                   /home/minecraft/multicraft/servers/server46738/mods/witherCrumbs-1.10.2-0.9.jar
+7676cb3c4000-7676cb3c7000 r--s 00013000 09:03 49023758                   /home/minecraft/multicraft/servers/server46738/mods/Wawla-1.10.2-2.3.2.215.jar
+7676cb3c7000-7676cb3c8000 r--s 0000e000 09:03 49023757                   /home/minecraft/multicraft/servers/server46738/mods/WanionLib-1.10.2-1.3.jar
+7676cb3c8000-7676cb3ca000 r--s 00037000 09:03 49023756                   /home/minecraft/multicraft/servers/server46738/mods/Waddles-1.10.2-0.5.4.jar
+7676cb3ca000-7676cb3cb000 r--s 00001000 09:03 49023755                   /home/minecraft/multicraft/servers/server46738/mods/voidcup-1.10.2-0.0.1.jar
+7676cb3cb000-7676cb3cc000 r--s 00001000 09:03 49023752                   /home/minecraft/multicraft/servers/server46738/mods/Twitchcrumbs_1.10.2-2.0.4.jar
+7676cb3cc000-7676cb3cd000 r--s 00016000 09:03 49023751                   /home/minecraft/multicraft/servers/server46738/mods/TS2K16-1.0.3.jar
+7676cb3cd000-7676cb3d0000 r--s 0002b000 09:03 49023750                   /home/minecraft/multicraft/servers/server46738/mods/Translocators-1.10.2-2.1.4.55-universal.jar
+7676cb3d0000-7676cb3d3000 r--s 00014000 09:03 49023749                   /home/minecraft/multicraft/servers/server46738/mods/torchmaster_1.10.2-1.4.1.34.jar
+7676cb3d3000-7676cb3dd000 r--s 0003d000 09:03 49023748                   /home/minecraft/multicraft/servers/server46738/mods/tinyprogressions-1.10.2-1.1.0.jar
+7676cb3dd000-7676cb3df000 r--s 00015000 09:03 49023747                   /home/minecraft/multicraft/servers/server46738/mods/TinkerToolLeveling-1.10.2-1.0.1.jar
+7676cb3df000-7676cb3e3000 r--s 005d0000 09:03 49023746                   /home/minecraft/multicraft/servers/server46738/mods/The Beneath-1.10.2-1.2.0.jar
+7676cb3e3000-7676cb3ee000 r--s 000be000 09:03 49023744                   /home/minecraft/multicraft/servers/server46738/mods/SuperCircuitMaker-1.0.4.jar
+7676cb3ee000-7676cb40c000 r--s 00210000 09:03 49023742                   /home/minecraft/multicraft/servers/server46738/mods/StevesCarts-1.10.2-2.2.0.86.jar
+7676cb40c000-7676cb40e000 r--s 00004000 09:03 49023739                   /home/minecraft/multicraft/servers/server46738/mods/Snad-1.10.2-1.6.09.20a.jar
+7676cb40e000-7676cb418000 r--s 00089000 09:03 49023738                   /home/minecraft/multicraft/servers/server46738/mods/SimplyJetpacks2-1.10.2-2.1.3.55.jar
+7676cb418000-7676cb41a000 r--s 00009000 09:03 49023737                   /home/minecraft/multicraft/servers/server46738/mods/simplelabels-1-10.2-0.0.3.jar
+7676cb41a000-7676cb41f000 r--s 00018000 09:03 49023736                   /home/minecraft/multicraft/servers/server46738/mods/simplegenerators-1.10.2-0.10.6a.jar
+7676cb41f000-7676cb422000 r--s 0000f000 09:03 49023735                   /home/minecraft/multicraft/servers/server46738/mods/simpleCorn-1.10.2-2.2.0.jar
+7676cb422000-7676cb426000 r--s 00018000 09:03 49023734                   /home/minecraft/multicraft/servers/server46738/mods/simplebarrels-1.26e.jar
+7676cb426000-7676cb429000 r--s 0001e000 09:03 49023733                   /home/minecraft/multicraft/servers/server46738/mods/SimpleAchievements-MC1.9.4-1.2.2-28.jar
+7676cb429000-7676cb430000 r--s 00040000 09:03 49023731                   /home/minecraft/multicraft/servers/server46738/mods/shearmadness-1.10.2-1.7.0.4.jar
+7676cb430000-7676cb434000 r--s 0002b000 09:03 49023729                   /home/minecraft/multicraft/servers/server46738/mods/scanner-1.5.2.jar
+7676cb434000-7676cb435000 r--s 00001000 09:03 49023728                   /home/minecraft/multicraft/servers/server46738/mods/SBM-WoodenShears-1.10.2-0.0.1b2-universal.jar
+7676cb435000-7676cb442000 r--s 00040000 09:03 49023827                   /home/minecraft/multicraft/servers/server46738/mods/roost-1.10.2-1.1.0.jar
+7676cb442000-7676cb454000 r--s 0017e000 09:03 49023725                   /home/minecraft/multicraft/servers/server46738/mods/rftoolsdim-1.1x-5.05.jar
+7676cb454000-7676cb45e000 r--s 00081000 09:03 49023724                   /home/minecraft/multicraft/servers/server46738/mods/rftoolsctrl-1.1x-1.6.8.jar
+7676cb45e000-7676cb487000 r--s 002ae000 09:03 49023723                   /home/minecraft/multicraft/servers/server46738/mods/rftools-1.1x-6.13.jar
+7676cb487000-7676cb48c000 r--s 00081000 09:03 49023721                   /home/minecraft/multicraft/servers/server46738/mods/Reliquia-[1.10.2]-0.0.7.jar
+7676cb48c000-7676cb48f000 r--s 0000b000 09:03 49023718                   /home/minecraft/multicraft/servers/server46738/mods/RebornStorage-1.10.2-1.0.3.30.jar
+7676cb48f000-7676cb4ac000 r--s 0013c000 09:03 49023720                   /home/minecraft/multicraft/servers/server46738/mods/refinedstorage-1.2.26.jar
+7676cb4ac000-7676cb4ae000 r--s 00005000 09:03 49023716                   /home/minecraft/multicraft/servers/server46738/mods/rangedpumps-0.3.jar
+7676cb4ae000-7676cb4b2000 r--s 00014000 09:03 49023714                   /home/minecraft/multicraft/servers/server46738/mods/QuantumStorage-1.10.2-3.3.6.jar
+7676cb4b2000-7676cb4b9000 r--s 00056000 09:03 49023712                   /home/minecraft/multicraft/servers/server46738/mods/platforms-1.10.0-1.2.10.jar
+7676cb4b9000-7676cb517000 r--s 0028c000 09:03 49023711                   /home/minecraft/multicraft/servers/server46738/mods/Pam's HarvestCraft 1.9.4-1.10.2h.jar
+7676cb517000-7676cb519000 r--s 00004000 09:03 49023710                   /home/minecraft/multicraft/servers/server46738/mods/PackingTape-1.10.2-0.6.0.jar
+7676cb519000-7676cb51c000 r--s 00029000 09:03 49023708                   /home/minecraft/multicraft/servers/server46738/mods/OreExcavation-1.2.102.jar
+7676cb51c000-7676cb520000 r--s 00026000 09:03 49023706                   /home/minecraft/multicraft/servers/server46738/mods/notenoughwands-1.1x-1.5.5.jar
+7676cb520000-7676cb523000 r--s 0000c000 09:03 49023703                   /home/minecraft/multicraft/servers/server46738/mods/nice-0.1.0.jar
+7676cb523000-7676cb55e000 r--s 00111000 09:03 49023700                   /home/minecraft/multicraft/servers/server46738/mods/mysticalagriculture[1.10.2]-1.5.8.jar
+7676cb55e000-7676cb561000 r--s 0000b000 09:03 49023697                   /home/minecraft/multicraft/servers/server46738/mods/mpbasic-1.10.2-1.1.5.jar
+7676cb561000-7676cb566000 r--s 00034000 09:03 49023698                   /home/minecraft/multicraft/servers/server46738/mods/mputils-1.10.2-1.2.9.jar
+7676cb566000-7676cb568000 r--s 00004000 09:03 49023695                   /home/minecraft/multicraft/servers/server46738/mods/Morpheus-1.10.2-3.1.13.jar
+7676cb568000-7676cb56c000 r--s 0002b000 09:03 49023694                   /home/minecraft/multicraft/servers/server46738/mods/moreshears-1.10.2-1.0.5-release.jar
+7676cb56c000-7676cb56f000 r--s 0000d000 09:03 49023693                   /home/minecraft/multicraft/servers/server46738/mods/MoreShearables1.2.1-1.10.2.jar
+7676cb56f000-7676cb574000 r--s 00024000 09:03 49023692                   /home/minecraft/multicraft/servers/server46738/mods/MoreChickens-1.10.2-1.1.6.jar
+7676cb574000-7676cb57b000 r--s 00039000 09:03 49023691                   /home/minecraft/multicraft/servers/server46738/mods/ModTweaker2-2.0.13.jar
+7676cb57b000-7676cb582000 r--s 000cc000 09:03 49023690                   /home/minecraft/multicraft/servers/server46738/mods/MobGrindingUtils-0.1.8.22.jar
+7676cb582000-7676cb59f000 r--s 00190000 09:03 49023689                   /home/minecraft/multicraft/servers/server46738/mods/MoarSigns-1.10.2-4.2.3.9.jar
+7676cb59f000-7676cb5b4000 r--s 0016d000 09:03 49023727                   /home/minecraft/multicraft/servers/server46738/mods/roots-0.208.jar
+7676cb5b4000-7676cb5eb000 r--s 000a9000 09:03 49023688                   /home/minecraft/multicraft/servers/server46738/mods/missing_pieces-1.10.2-4.3.0.jar
+7676cb5eb000-7676cb7eb000 rw-p 00000000 00:00 0 
+7676cb7eb000-7676cb80a000 r--s 000da000 09:03 49023701                   /home/minecraft/multicraft/servers/server46738/mods/natura-1.10.2-4.1.0.80.jar
+7676cb80a000-7676cb80b000 r--s 00003000 09:03 49023687                   /home/minecraft/multicraft/servers/server46738/mods/minicoal-1.1.0.jar
+7676cb80b000-7676cb80d000 r--s 00035000 09:03 49023686                   /home/minecraft/multicraft/servers/server46738/mods/MineMenu-1.10.2-1.4.5-universal.jar
+7676cb80d000-7676cb80f000 r--s 00008000 09:03 49023685                   /home/minecraft/multicraft/servers/server46738/mods/Mercurius-1.10.2-1.0.6.jar
+7676cb80f000-7676cb813000 r--s 00038000 09:03 49023680                   /home/minecraft/multicraft/servers/server46738/mods/LootBags-1.10.2-2.3.9.jar
+7676cb813000-7676cb815000 r--s 00004000 09:03 49023676                   /home/minecraft/multicraft/servers/server46738/mods/KleeSlabs_1.10.2-3.3.5.jar
+7676cb815000-7676cb82e000 r--s 001c6000 09:03 49023675                   /home/minecraft/multicraft/servers/server46738/mods/journeymap-1.10.2-5.5.0b4.jar
+7676cb82e000-7676cb830000 r--s 00003000 09:03 49023672                   /home/minecraft/multicraft/servers/server46738/mods/ItsBecauseUHasNoGoodSpawn-1.0.5.jar
+7676cb830000-7676cb832000 r--s 00029000 09:03 49023817                   /home/minecraft/multicraft/servers/server46738/mods/YUNoMakeGoodMap-1.10.2-6.1.0.26.jar
+7676cb832000-7676cb836000 r--s 00022000 09:03 49023671                   /home/minecraft/multicraft/servers/server46738/mods/ironchest-1.10.2-7.0.15.804.jar
+7676cb836000-7676cb840000 r--s 00059000 09:03 49023670                   /home/minecraft/multicraft/servers/server46738/mods/IronBackpacks-1.10.2-2.2.31.jar
+7676cb840000-7676cb848000 r--s 0004e000 09:03 49023668                   /home/minecraft/multicraft/servers/server46738/mods/IntegratedTunnels-1.10.2-1.2.5.jar
+7676cb848000-7676cb88e000 r--s 002d6000 09:03 49023667                   /home/minecraft/multicraft/servers/server46738/mods/IntegratedDynamics-1.10.2-0.7.12.jar
+7676cb88e000-7676cb890000 r--s 00001000 09:03 49023666                   /home/minecraft/multicraft/servers/server46738/mods/InitialInventory-1.0.1.jar
+7676cb890000-7676cb892000 r--s 00007000 09:03 49023699                   /home/minecraft/multicraft/servers/server46738/mods/MTLib-1.0.3.jar
+7676cb892000-7676cb89b000 r--s 00043000 09:03 49023665                   /home/minecraft/multicraft/servers/server46738/mods/InGameInfoXML-1.10.2-2.8.1.89-universal.jar
+7676cb89b000-7676cb89e000 r--s 00011000 09:03 49023681                   /home/minecraft/multicraft/servers/server46738/mods/LunatriusCore-1.10.2-1.1.2.38-universal.jar
+7676cb89e000-7676cb8de000 r--s 004a5000 09:03 49023664                   /home/minecraft/multicraft/servers/server46738/mods/ImmersiveEngineering-0.10-61.jar
+7676cb8de000-7676cb8e0000 r--s 0000b000 09:03 49023661                   /home/minecraft/multicraft/servers/server46738/mods/hopperducts-mc1.9.4-1.4.8.1.jar
+7676cb8e0000-7676cb8e8000 r--s 00041000 09:03 49023660                   /home/minecraft/multicraft/servers/server46738/mods/Headcrumbs-2.0.3.jar
+7676cb8e8000-7676cb8f2000 r--s 000ae000 09:03 49023804                   /home/minecraft/multicraft/servers/server46738/mods/hatchery-1.10.2-0.3.21.jar
+7676cb8f2000-7676cb8f4000 r--s 00009000 09:03 49023657                   /home/minecraft/multicraft/servers/server46738/mods/Gyth-1.10.2-2.0.0.27.jar
+7676cb8f4000-7676cb8f7000 r--s 00092000 09:03 49023655                   /home/minecraft/multicraft/servers/server46738/mods/Grue-1.9.4-1.3.5.jar
+7676cb8f7000-7676cb91c000 r--s 0017c000 09:03 49023652                   /home/minecraft/multicraft/servers/server46738/mods/generators-0.9.20.23-mc1.10.2.jar
+7676cb91c000-7676cb923000 r--s 0008b000 09:03 49023648                   /home/minecraft/multicraft/servers/server46738/mods/FTBUtilities-1.1x-3.6.5.jar
+7676cb923000-7676cb933000 r--s 000a3000 09:03 49023647                   /home/minecraft/multicraft/servers/server46738/mods/FTBLib-1.1x-3.6.5.jar
+7676cb933000-7676cb93c000 r--s 00052000 09:03 49023644                   /home/minecraft/multicraft/servers/server46738/mods/FluxNetworks-1.10.2-1.2.8.jar
+7676cb93c000-7676cb967000 r--s 000f6000 09:03 49023741                   /home/minecraft/multicraft/servers/server46738/mods/SonarCore-1.10.2-3.3.0.jar
+7676cb967000-7676cb96c000 r--s 0001c000 09:03 49023643                   /home/minecraft/multicraft/servers/server46738/mods/flatcoloredblocks-mc1.10-v4.4.jar
+7676cb96c000-7676cbb6c000 rw-p 00000000 00:00 0 
+7676cbb6c000-7676cbd6c000 rw-p 00000000 00:00 0 
+7676cbd6c000-7676cbe00000 r--s 00ffd000 09:03 49023605                   /home/minecraft/multicraft/servers/server46738/mods/Chisel-MC1.10.2-0.0.14.33.jar
+7676cbe00000-7676cc000000 rw-p 00000000 00:00 0 
+7676cc000000-7676cc021000 rw-p 00000000 00:00 0 
+7676cc021000-7676d0000000 ---p 00000000 00:00 0 
+7676d0000000-7676d0044000 rw-p 00000000 00:00 0 
+7676d0044000-7676d4000000 ---p 00000000 00:00 0 
+7676d4000000-7676d4021000 rw-p 00000000 00:00 0 
+7676d4021000-7676d8000000 ---p 00000000 00:00 0 
+7676d8000000-7676dbfff000 rw-p 00000000 00:00 0 
+7676dbfff000-7676dc000000 ---p 00000000 00:00 0 
+7676dc000000-7676dc021000 rw-p 00000000 00:00 0 
+7676dc021000-7676e0000000 ---p 00000000 00:00 0 
+7676e0000000-7676e0021000 rw-p 00000000 00:00 0 
+7676e0021000-7676e4000000 ---p 00000000 00:00 0 
+7676e4000000-7676e556d000 rw-p 00000000 00:00 0 
+7676e556d000-7676e8000000 ---p 00000000 00:00 0 
+7676e8000000-7676e8021000 rw-p 00000000 00:00 0 
+7676e8021000-7676ec000000 ---p 00000000 00:00 0 
+7676ec000000-7676eea76000 rw-p 00000000 00:00 0 
+7676eea76000-7676f0000000 ---p 00000000 00:00 0 
+7676f0000000-7676f2d72000 rw-p 00000000 00:00 0 
+7676f2d72000-7676f4000000 ---p 00000000 00:00 0 
+7676f4000000-7676f4021000 rw-p 00000000 00:00 0 
+7676f4021000-7676f8000000 ---p 00000000 00:00 0 
+7676f8000000-7676fb3a0000 rw-p 00000000 00:00 0 
+7676fb3a0000-7676fc000000 ---p 00000000 00:00 0 
+7676fc000000-7676fc021000 rw-p 00000000 00:00 0 
+7676fc021000-767700000000 ---p 00000000 00:00 0 
+767700000000-767700021000 rw-p 00000000 00:00 0 
+767700021000-767704000000 ---p 00000000 00:00 0 
+767704000000-767704294000 rw-p 00000000 00:00 0 
+767704294000-767708000000 ---p 00000000 00:00 0 
+767708000000-767708c20000 rw-p 00000000 00:00 0 
+767708c20000-767748000000 ---p 00000000 00:00 0 
+767748000000-767768000000 rw-p 00000000 00:00 0 
+767768000000-767768021000 rw-p 00000000 00:00 0 
+767768021000-76776c000000 ---p 00000000 00:00 0 
+76776c000000-76776c003000 r--s 00011000 09:03 49023654                   /home/minecraft/multicraft/servers/server46738/mods/gravestone-1.5.13.jar
+76776c003000-76776c007000 r--s 00023000 09:03 49023642                   /home/minecraft/multicraft/servers/server46738/mods/FarmingForBlockheads_1.10.2-1.1.16.jar
+76776c007000-76776c012000 r--s 0010d000 09:03 49023641                   /home/minecraft/multicraft/servers/server46738/mods/fairylights-2.1.2-1.10.2.jar
+76776c012000-76776c029000 r--s 000e8000 09:03 49023640                   /home/minecraft/multicraft/servers/server46738/mods/ExtremeReactors-1.10.2-0.4.5.30.jar
+76776c029000-76776c02f000 r--s 00023000 09:03 49023821                   /home/minecraft/multicraft/servers/server46738/mods/zerocore-1.10.2-0.1.0.6.jar
+76776c02f000-76776c03f000 r--s 00389000 09:03 49023638                   /home/minecraft/multicraft/servers/server46738/mods/ExtraBitManipulation-1.10.2-2.5.1.jar
+76776c03f000-76776c04a000 r--s 00069000 09:03 49023636                   /home/minecraft/multicraft/servers/server46738/mods/ExCompressum_1.10.2-2.0.97.jar
+76776c04a000-76776c053000 r--s 00059000 09:03 49023637                   /home/minecraft/multicraft/servers/server46738/mods/exnihiloadscensio-1.10.2-0.1.20.jar
+76776c053000-76776c069000 r--s 0006d000 09:03 49023634                   /home/minecraft/multicraft/servers/server46738/mods/environmentaltech-1.10.2-0.10.6b.jar
+76776c069000-76776c070000 r-xp 00000000 09:02 152145                     /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libawt_headless.so
+76776c070000-76776c26f000 ---p 00007000 09:02 152145                     /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libawt_headless.so
+76776c26f000-76776c270000 rw-p 00006000 09:02 152145                     /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libawt_headless.so
+76776c270000-76776c312000 r-xp 00000000 09:02 152127                     /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libawt.so
+76776c312000-76776c512000 ---p 000a2000 09:02 152127                     /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libawt.so
+76776c512000-76776c51e000 rw-p 000a2000 09:02 152127                     /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libawt.so
+76776c51e000-76776c742000 rw-p 00000000 00:00 0 
+76776c742000-76776c745000 ---p 00000000 00:00 0 
+76776c745000-76776c7c3000 rw-p 00000000 00:00 0 
+76776c7c3000-76776c7c4000 r--s 00002000 09:03 49023679                   /home/minecraft/multicraft/servers/server46738/mods/LongFallBoots - Hard Mode.jar
+76776c7c4000-76776c7c6000 r--s 00001000 09:03 49023651                   /home/minecraft/multicraft/servers/server46738/mods/GardenOfGlass.jar
+76776c7c6000-76776c7ce000 r--s 0002f000 09:03 49023754                   /home/minecraft/multicraft/servers/server46738/mods/valkyrielib-1.10.2-0.10.6.jar
+76776c7ce000-76776c817000 r--s 0047e000 09:03 49023630                   /home/minecraft/multicraft/servers/server46738/mods/EnderIO-1.10.2-3.1.193.jar
+76776c817000-76776c828000 r--s 0007b000 09:03 49023743                   /home/minecraft/multicraft/servers/server46738/mods/StorageDrawers-1.10.2-3.7.10.jar
+76776c828000-76776c850000 r--s 00522000 09:03 49023625                   /home/minecraft/multicraft/servers/server46738/mods/Draconic-Evolution-1.10.2-2.1.6.263-universal.jar
+76776c850000-76776ca50000 rw-p 00000000 00:00 0 
+76776ca50000-76776cc50000 rw-p 00000000 00:00 0 
+76776cc50000-76776cc53000 ---p 00000000 00:00 0 
+76776cc53000-76776ccd1000 rw-p 00000000 00:00 0 
+76776ccd1000-76776ccd2000 r--s 00008000 09:03 49023673                   /home/minecraft/multicraft/servers/server46738/mods/itsrainingfood-1.10.2-0.1.0.jar
+76776ccd2000-76776ccda000 r--s 00048000 09:03 49023633                   /home/minecraft/multicraft/servers/server46738/mods/EngineersWorkshop-1.3.6-1.10.2.jar
+76776ccda000-76776ccdf000 r--s 00024000 09:03 49023632                   /home/minecraft/multicraft/servers/server46738/mods/energyconverters_1.10.2-1.0.0.26.jar
+76776ccdf000-76776cce5000 r--s 0006b000 09:03 49023626                   /home/minecraft/multicraft/servers/server46738/mods/DragonMounts-r46-1.10.2.jar
+76776cce5000-76776ccec000 r--s 00cc0000 09:03 49023622                   /home/minecraft/multicraft/servers/server46738/mods/Decocraft-2.4.2_1.10.2.jar
+76776ccec000-76776ccf9000 r--s 00053000 09:03 49023621                   /home/minecraft/multicraft/servers/server46738/mods/DarkUtilities-1.1.8.finalrc2.jar
+76776ccf9000-76776cd03000 r--s 0004f000 09:03 49023616                   /home/minecraft/multicraft/servers/server46738/mods/CookingForBlockheads_1.10.2-4.2.45.jar
+76776cd03000-76776cd4e000 r--s 00340000 09:03 49023745                   /home/minecraft/multicraft/servers/server46738/mods/TConstruct-1.10.2-2.6.5.jar
+76776cd4e000-76776cd51000 ---p 00000000 00:00 0 
+76776cd51000-76776cdcf000 rw-p 00000000 00:00 0 
+76776cdcf000-76776cdd1000 r--s 00003000 09:03 49023650                   /home/minecraft/multicraft/servers/server46738/mods/Funnels-1.10.2-1.1.2.jar
+76776cdd1000-76776cdd8000 r--s 00071000 09:03 49023662                   /home/minecraft/multicraft/servers/server46738/mods/Hwyla-1.8.17-B31_1.10.2.jar
+76776cdd8000-76776cddf000 r--s 00025000 09:03 49023613                   /home/minecraft/multicraft/servers/server46738/mods/CommonCapabilities-1.9.4-1.3.3.jar
+76776cddf000-76776cde4000 r--s 00039000 09:03 49023612                   /home/minecraft/multicraft/servers/server46738/mods/ColossalChests-1.10.2-1.6.0.jar
+76776cde4000-76776cdf5000 r--s 000a4000 09:03 49023620                   /home/minecraft/multicraft/servers/server46738/mods/CyclopsCore-1.9.4-0.10.9.jar
+76776cdf5000-76776cdf8000 ---p 00000000 00:00 0 
+76776cdf8000-76776ce76000 rw-p 00000000 00:00 0 
+76776ce76000-76776ce79000 r--s 00014000 09:03 49023628                   /home/minecraft/multicraft/servers/server46738/mods/ElevatorMod[V.1.3.0][MC.1.10.2].jar
+76776ce79000-76776ce85000 r--s 00070000 09:03 49023730                   /home/minecraft/multicraft/servers/server46738/mods/ShadowMC-1.10.2-3.6.1.jar
+76776ce85000-76776ce92000 r--s 00094000 09:03 49023606                   /home/minecraft/multicraft/servers/server46738/mods/chiselsandbits-12.15.jar
+76776ce92000-76776ce98000 r--s 00032000 09:03 49023604                   /home/minecraft/multicraft/servers/server46738/mods/chickens-4.3.2.jar
+76776ce98000-76776ceae000 r--s 0003a000 09:03 49023602                   /home/minecraft/multicraft/servers/server46738/mods/ChestTransporter-1.10.2-2.5.18.jar
+76776ceae000-76776ceb1000 ---p 00000000 00:00 0 
+76776ceb1000-76776cf2f000 rw-p 00000000 00:00 0 
+76776cf2f000-76776cf31000 r--s 00006000 09:03 49023635                   /home/minecraft/multicraft/servers/server46738/mods/etlunar-1.10.2-0.10.6a.jar
+76776cf31000-76776cf33000 r--s 00012000 09:03 49023627                   /home/minecraft/multicraft/servers/server46738/mods/DrawersBits-1.10.2-0.36.jar
+76776cf33000-76776cf37000 r--s 0001c000 09:03 49023603                   /home/minecraft/multicraft/servers/server46738/mods/ChickenChunks-1.10.2-2.2.0.52-universal.jar
+76776cf37000-76776cf3f000 r--s 0004c000 09:03 49023601                   /home/minecraft/multicraft/servers/server46738/mods/Charset-mc1.10.2-0.3.5-fd38f2c944396214.jar
+76776cf3f000-76776cf4a000 r--s 000cc000 09:03 49023600                   /home/minecraft/multicraft/servers/server46738/mods/ChanceCubes-1.10.2-3.0.1.207.jar
+76776cf4a000-76776cf4d000 ---p 00000000 00:00 0 
+76776cf4d000-76776cfcb000 rw-p 00000000 00:00 0 
+76776cfcb000-76776cfcd000 r--s 00005000 09:03 49023624                   /home/minecraft/multicraft/servers/server46738/mods/dimensionalcake-1.9.4-0.0.1.jar
+76776cfcd000-76776d029000 r--s 00cda000 09:03 49023596                   /home/minecraft/multicraft/servers/server46738/mods/Botania r1.9-341.jar
+76776d029000-76776d229000 rw-p 00000000 00:00 0 
+76776d229000-76776d429000 rw-p 00000000 00:00 0 
+76776d429000-76776d629000 rw-p 00000000 00:00 0 
+76776d629000-76776d829000 rw-p 00000000 00:00 0 
+76776d829000-76776da29000 rw-p 00000000 00:00 0 
+76776da29000-76776dc29000 rw-p 00000000 00:00 0 
+76776dc29000-76776dc3f000 r-xp 00000000 09:02 916105                     /lib/x86_64-linux-gnu/libgcc_s.so.1
+76776dc3f000-76776de3e000 ---p 00016000 09:02 916105                     /lib/x86_64-linux-gnu/libgcc_s.so.1
+76776de3e000-76776de3f000 rw-p 00015000 09:02 916105                     /lib/x86_64-linux-gnu/libgcc_s.so.1
+76776de3f000-76776de5e000 r-xp 00000000 09:02 152143                     /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libunpack.so
+76776de5e000-76776e05e000 ---p 0001f000 09:02 152143                     /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libunpack.so
+76776e05e000-76776e061000 rw-p 0001f000 09:02 152143                     /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libunpack.so
+76776e061000-76776e272000 rw-p 00000000 00:00 0 
+76776e272000-76776e472000 rw-p 00000000 00:00 0 
+76776e472000-76776e672000 rw-p 00000000 00:00 0 
+76776e672000-76776e683000 r-xp 00000000 09:02 152137                     /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libnio.so
+76776e683000-76776e882000 ---p 00011000 09:02 152137                     /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libnio.so
+76776e882000-76776e883000 rw-p 00010000 09:02 152137                     /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libnio.so
+76776e883000-76776eb84000 rw-p 00000000 00:00 0 
+76776eb84000-76776eb9a000 r-xp 00000000 09:02 152134                     /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libnet.so
+76776eb9a000-76776ed9a000 ---p 00016000 09:02 152134                     /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libnet.so
+76776ed9a000-76776ed9b000 rw-p 00016000 09:02 152134                     /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libnet.so
+76776ed9b000-76776eda4000 r-xp 00000000 09:02 152142                     /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libmanagement.so
+76776eda4000-76776efa3000 ---p 00009000 09:02 152142                     /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libmanagement.so
+76776efa3000-76776efa4000 rw-p 00008000 09:02 152142                     /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libmanagement.so
+76776efa4000-76776f094000 r--s 00c03000 09:03 48653200                   /home/minecraft/multicraft/servers/server46738/libraries/org/scala-lang/scala-compiler/2.11.1/scala-compiler-2.11.1.jar
+76776f094000-76776f095000 ---p 00000000 00:00 0 
+76776f095000-76776f195000 rw-p 00000000 00:00 0 
+76776f195000-76776f196000 r--s 00008000 09:03 49023669                   /home/minecraft/multicraft/servers/server46738/mods/inventorysorter-1.10.2-0.11.0+47.jar
+76776f196000-76776f19a000 r--s 00029000 09:03 49023684                   /home/minecraft/multicraft/servers/server46738/mods/MCMultiPart-1.4.0-universal.jar
+76776f19a000-76776f1cd000 r--s 00662000 09:03 49023594                   /home/minecraft/multicraft/servers/server46738/mods/BloodMagic-1.10.2-2.1.11-80.jar
+76776f1cd000-76776f27a000 r--s 00af5000 09:03 49023707                   /home/minecraft/multicraft/servers/server46738/mods/OpenComputers-MC1.10.2-1.6.2.7.jar
+76776f27a000-76776f27d000 ---p 00000000 00:00 0 
+76776f27d000-76776f2fb000 rw-p 00000000 00:00 0 
+76776f2fb000-76776f2fe000 r--s 00011000 09:03 49023608                   /home/minecraft/multicraft/servers/server46738/mods/Clipboard-1.10.2-1.1.1.jar
+76776f2fe000-76776f301000 r--s 00015000 09:03 49023599                   /home/minecraft/multicraft/servers/server46738/mods/Chameleon-1.10.2-2.3.0.jar
+76776f301000-76776f308000 r--s 00023000 09:03 49023598                   /home/minecraft/multicraft/servers/server46738/mods/Ceramics-1.10.2-1.1.6b.jar
+76776f308000-76776f331000 r--s 001be000 09:03 49023587                   /home/minecraft/multicraft/servers/server46738/mods/bdlib-1.12.4.24-mc1.10.2.jar
+76776f331000-76776f36a000 r--s 00276000 09:03 49023639                   /home/minecraft/multicraft/servers/server46738/mods/extrautils2-1.10.2-1.6.3.jar
+76776f36a000-76776f36d000 ---p 00000000 00:00 0 
+76776f36d000-76776f46b000 rw-p 00000000 00:00 0 
+76776f46b000-76776f46c000 r--s 00005000 09:03 49023663                   /home/minecraft/multicraft/servers/server46738/mods/hydrogel-0.9.jar
+76776f46c000-76776f471000 r--s 002f9000 09:02 151917                     /usr/lib/jvm/java-8-oracle/jre/lib/charsets.jar
+76776f471000-76776f481000 r--s 000c0000 09:03 49023682                   /home/minecraft/multicraft/servers/server46738/mods/Mantle-1.10.2-1.1.5.jar
+76776f481000-76776f493000 r--s 000c3000 09:03 49023617                   /home/minecraft/multicraft/servers/server46738/mods/CraftTweaker-1.10.2-3.0.26.jar
+76776f493000-76776f524000 r--s 00875000 09:03 47192881                   /home/minecraft/multicraft/servers/server46738/minecraft_server.1.10.2.jar
+76776f524000-76776f527000 ---p 00000000 00:00 0 
+76776f527000-76776f625000 rw-p 00000000 00:00 0 
+76776f625000-76776f627000 r--s 00002000 09:03 49023609                   /home/minecraft/multicraft/servers/server46738/mods/Clumps-1.0.5.jar
+76776f627000-76776f633000 r--s 00066000 09:03 49023585                   /home/minecraft/multicraft/servers/server46738/mods/base-1.10.2-1.4.0.jar
+76776f633000-76776f636000 ---p 00000000 00:00 0 
+76776f636000-76776f734000 rw-p 00000000 00:00 0 
+76776f734000-76776f738000 r--s 0002c000 09:03 49023656                   /home/minecraft/multicraft/servers/server46738/mods/Guide-API-1.10.2-2.0.3-46.jar
+76776f738000-76776f739000 r--s 00001000 09:03 49023593                   /home/minecraft/multicraft/servers/server46738/mods/BlockDispenser-1.0-1.jar
+76776f739000-76776f73c000 r--s 00010000 09:03 49023589                   /home/minecraft/multicraft/servers/server46738/mods/BetterBuildersWands-1.10.2-0.11.1.220+f8232fe.jar
+76776f73c000-76776f73e000 r--s 00003000 09:03 49023588                   /home/minecraft/multicraft/servers/server46738/mods/BedBugs-1.10.2-1.1.6.jar
+76776f73e000-76776f740000 r--s 00052000 09:03 49023584                   /home/minecraft/multicraft/servers/server46738/mods/baconators-1.10.2-3.0.6.jar
+76776f740000-76776f742000 r--s 0000c000 09:03 49023583                   /home/minecraft/multicraft/servers/server46738/mods/AutoRegLib-1.0-2.jar
+76776f742000-76776f756000 r--s 001fe000 09:03 49023713                   /home/minecraft/multicraft/servers/server46738/mods/Psi-r1.0-42.jar
+76776f756000-76776f757000 r--s 00006000 09:03 49023582                   /home/minecraft/multicraft/servers/server46738/mods/autopackager-1.6.4b.jar
+76776f757000-76776f759000 r--s 00006000 09:03 49023581                   /home/minecraft/multicraft/servers/server46738/mods/AppleSkin-mc1.10.2-1.0.8.jar
+76776f759000-76776f75b000 r--s 00084000 09:03 49023580                   /home/minecraft/multicraft/servers/server46738/mods/AppleShields-0.1.7.jar
+76776f75b000-76776f75d000 r--s 00000000 09:03 49023578                   /home/minecraft/multicraft/servers/server46738/mods/angelRingToBauble-1.10.2-0.2.4.19+d71eb9e.jar
+76776f75d000-76776f760000 r--s 00017000 09:03 49023586                   /home/minecraft/multicraft/servers/server46738/mods/Baubles-1.10.2-1.3.11.jar
+76776f760000-76776f762000 r--s 00003000 09:03 49023577                   /home/minecraft/multicraft/servers/server46738/mods/actuallycomputers-1.0.0.jar
+76776f762000-76776f76b000 r--s 0006a000 09:03 49023674                   /home/minecraft/multicraft/servers/server46738/mods/jei_1.10.2-3.14.7.420.jar
+76776f76b000-76776f771000 r--s 00031000 09:03 49023631                   /home/minecraft/multicraft/servers/server46738/mods/EnderStorage-1.10.2-2.2.1.106-universal.jar
+76776f771000-76776f774000 r--s 00017000 09:03 49023610                   /home/minecraft/multicraft/servers/server46738/mods/CodeChickenCore-1.10.2-2.4.1.102-universal.jar
+76776f774000-76776f7a1000 r--s 00231000 09:03 49023576                   /home/minecraft/multicraft/servers/server46738/mods/ActuallyAdditions-1.10.2-r105.jar
+76776f7a1000-76776f7a2000 r--s 00007000 09:03 49023823                   /home/minecraft/multicraft/servers/server46738/mods/[1.10.x]FenceOverhaul-1.2.1.jar
+76776f7a2000-76776f7a9000 r--s 00049000 09:03 49023683                   /home/minecraft/multicraft/servers/server46738/mods/mcjtylib-1.1x-2.4.3.jar
+76776f7a9000-76776f7ac000 r--s 0000b000 09:03 49023653                   /home/minecraft/multicraft/servers/server46738/mods/GooglyEyes-1.10.2-6.0.0.jar
+76776f7ac000-76776f7b1000 r--s 00022000 09:03 49023619                   /home/minecraft/multicraft/servers/server46738/mods/CustomMainMenu-MC1.10.2-2.0.5.jar
+76776f7b1000-76776f7b8000 r--s 00029000 09:03 49023740                   /home/minecraft/multicraft/servers/server46738/mods/SolarFluxReborn_1.10.2-2.17r.jar
+76776f7b8000-76776f7bb000 ---p 00000000 00:00 0 
+76776f7bb000-76776f8b9000 rw-p 00000000 00:00 0 
+76776f8b9000-76776f8bb000 r--s 0000e000 09:03 49023696                   /home/minecraft/multicraft/servers/server46738/mods/MouseTweaks-2.8-mc1.10.2.jar
+76776f8bb000-76776f8f2000 r--s 000f9000 09:03 49023677                   /home/minecraft/multicraft/servers/server46738/mods/literalascension-1.10.2-1.0.2.2.jar
+76776f8f2000-76776f93a000 r--s 00340000 09:03 49023646                   /home/minecraft/multicraft/servers/server46738/mods/Forgelin-1.5.1.jar
+76776f93a000-76776fb3c000 r--p 00000000 09:02 133623                     /usr/lib/locale/locale-archive
+76776fb3c000-76776fb3f000 ---p 00000000 00:00 0 
+76776fb3f000-76776fbbd000 rw-p 00000000 00:00 0 
+76776fbbd000-76776fbbf000 r--s 00003000 09:03 49023649                   /home/minecraft/multicraft/servers/server46738/mods/FullscreenWindowed-1.10.2-1.5.1.jar
+76776fbbf000-76776fbd7000 r--s 0013b000 09:03 49023717                   /home/minecraft/multicraft/servers/server46738/mods/RebornCore-1.10.2-2.13.6.142-universal.jar
+76776fbd7000-76776fbea000 r--s 00345000 09:02 151923                     /usr/lib/jvm/java-8-oracle/jre/lib/resources.jar
+76776fbea000-76776fc43000 r--s 00502000 09:03 48653203                   /home/minecraft/multicraft/servers/server46738/libraries/org/scala-lang/scala-library/2.11.1/scala-library-2.11.1.jar
+76776fc43000-76776fc45000 r--s 00004000 09:03 49023615                   /home/minecraft/multicraft/servers/server46738/mods/Controlling-1.0.5.jar
+76776fc45000-76776fc47000 r--s 00008000 09:03 49023614                   /home/minecraft/multicraft/servers/server46738/mods/compatlayer-1.10-0.2.9.jar
+76776fc47000-76776fc4c000 r--s 00059000 09:03 49023732                   /home/minecraft/multicraft/servers/server46738/mods/shetiphiancore-1.10.0-3.3.11.jar
+76776fc4c000-76776fc4f000 r--s 00014000 09:03 49023719                   /home/minecraft/multicraft/servers/server46738/mods/redstonepaste-mc1.9.4-1.7.4.jar
+76776fc4f000-76776fc71000 r--s 0017d000 09:03 49023715                   /home/minecraft/multicraft/servers/server46738/mods/RandomThings-MC1.10.2-3.7.7.1.jar
+76776fc71000-76776fc7e000 r--s 000aa000 09:03 49023658                   /home/minecraft/multicraft/servers/server46738/mods/HammerCore-1.10.2-1.9.4.3.jar
+76776fc7e000-76776fca6000 r--s 00241000 09:03 48653180                   /home/minecraft/multicraft/servers/server46738/libraries/net/sf/trove4j/trove4j/3.0.3/trove4j-3.0.3.jar
+76776fca6000-76776fca7000 ---p 00000000 00:00 0 
+76776fca7000-76776fda7000 rw-p 00000000 00:00 0 
+76776fda7000-76776fdb3000 r--s 00100000 09:03 49023678                   /home/minecraft/multicraft/servers/server46738/mods/llibrary-1.7.7-1.10.2.jar
+76776fdb3000-76776fdfe000 r--s 003eb000 09:03 48653209                   /home/minecraft/multicraft/servers/server46738/libraries/org/scala-lang/scala-reflect/2.11.1/scala-reflect-2.11.1.jar
+76776fdfe000-767770000000 rw-p 00000000 00:00 0 
+767770000000-767770021000 rw-p 00000000 00:00 0 
+767770021000-767774000000 ---p 00000000 00:00 0 
+767774000000-767774001000 r--s 00003000 09:03 49023702                   /home/minecraft/multicraft/servers/server46738/mods/Neat 1.3-12.jar
+767774001000-767774002000 r--s 00006000 09:03 49023607                   /home/minecraft/multicraft/servers/server46738/mods/ClientTweaks_1.10.2-1.1.16.jar
+767774002000-76777400a000 r--s 00087000 09:03 49023705                   /home/minecraft/multicraft/servers/server46738/mods/NotEnoughItems-1.10.2-2.1.3.220-universal.jar
+76777400a000-76777400e000 r--s 0001c000 09:03 49023645                   /home/minecraft/multicraft/servers/server46738/mods/foamfix-0.7.2-anarchy.jar
+76777400e000-767774033000 r--s 0024b000 09:03 47192826                   /home/minecraft/multicraft/servers/server46738/libraries/com/typesafe/akka/akka-actor_2.11/2.3.3/akka-actor_2.11-2.3.3.jar
+767774033000-76777405e000 r--s 003f2000 09:03 47192813                   /home/minecraft/multicraft/servers/server46738/custom.jar
+76777405e000-767774061000 ---p 00000000 00:00 0 
+767774061000-7677740df000 rw-p 00000000 00:00 0 
+7677740df000-7677740e1000 r--s 00003000 09:03 49023591                   /home/minecraft/multicraft/servers/server46738/mods/BetterThanBunnies-1.10.2-1.1.0.jar
+7677740e1000-7677740ea000 r--s 0006a000 09:03 49023629                   /home/minecraft/multicraft/servers/server46738/mods/EnderCore-1.10.2-0.4.1.66-beta.jar
+7677740ea000-7677740f7000 r--s 0009a000 09:03 49023611                   /home/minecraft/multicraft/servers/server46738/mods/CodeChickenLib-1.10.2-2.5.9.283-universal.jar
+7677740f7000-7677740fa000 r--s 0001a000 09:02 151930                     /usr/lib/jvm/java-8-oracle/jre/lib/jce.jar
+7677740fa000-767774dff000 rw-p 00000000 00:00 0 
+767774dff000-767776fb2000 rw-p 00000000 00:00 0 
+767776fb2000-767778354000 ---p 00000000 00:00 0 
+767778354000-767778992000 rw-p 00000000 00:00 0 
+767778992000-767778dff000 ---p 00000000 00:00 0 
+767778dff000-767778e00000 rw-p 00000000 00:00 0 
+767778e00000-767779000000 ---p 00000000 00:00 0 
+767779000000-7677af480000 rw-p 00000000 00:00 0 
+7677af480000-767a23b00000 ---p 00000000 00:00 0 
+767a23b00000-767aeb580000 rw-p 00000000 00:00 0 
+767b3517f000-767b35180000 rw-p 00000000 00:00 0 
+767b35180000-767b79000000 ---p 00000000 00:00 0 
+767b79000000-767b7aaa0000 rwxp 00000000 00:00 0 
+767b7aaa0000-767b88000000 ---p 00000000 00:00 0 
+767b88000000-767b8aa62000 rw-p 00000000 00:00 0 
+767b8aa62000-767b8c000000 ---p 00000000 00:00 0 
+767b8c000000-767b8c001000 r--s 00002000 09:03 49023722                   /home/minecraft/multicraft/servers/server46738/mods/ResourceLoader-MC1.9.4-1.5.1.jar
+767b8c001000-767b8c006000 r--s 00027000 09:03 49023618                   /home/minecraft/multicraft/servers/server46738/mods/CTM-MC1.10.2-0.2.2.24.jar
+767b8c006000-767b8c00f000 r--s 00066000 09:03 49023597                   /home/minecraft/multicraft/servers/server46738/mods/BrandonsCore-1.10.2-2.1.12.130-universal.jar
+767b8c00f000-767b8c014000 r--s 0002f000 09:03 49023595                   /home/minecraft/multicraft/servers/server46738/mods/Bookshelf-1.10.2-1.4.4.347.jar
+767b8c014000-767b8c01a000 r--s 00038000 09:03 49023592                   /home/minecraft/multicraft/servers/server46738/mods/BiomeTweaker-1.10.2-2.3.239.jar
+767b8c01a000-767b8c01e000 r--s 00021000 09:03 49023590                   /home/minecraft/multicraft/servers/server46738/mods/BetterFps-1.4.5-1.10.jar
+767b8c01e000-767b8c021000 ---p 00000000 00:00 0 
+767b8c021000-767b8c09f000 rw-p 00000000 00:00 0 
+767b8c09f000-767b8c0a9000 r--s 00098000 09:03 49023574                   /home/minecraft/multicraft/servers/server46738/libraries/org/scala-lang/scala-xml_2.11/1.0.2/scala-xml_2.11-1.0.2.jar
+767b8c0a9000-767b8c2ab000 rw-p 00000000 00:00 0 
+767b8c2ab000-767b8c485000 r--s 03d6b000 09:02 151919                     /usr/lib/jvm/java-8-oracle/jre/lib/rt.jar
+767b8c485000-767b8c5c5000 rw-p 00000000 00:00 0 
+767b8c5c5000-767b8c5c6000 ---p 00000000 00:00 0 
+767b8c5c6000-767b8c6c6000 rw-p 00000000 00:00 0 
+767b8c6c6000-767b8c6c7000 r--s 00007000 09:03 49023704                   /home/minecraft/multicraft/servers/server46738/mods/NotEnoughIDs-1.5.3.1.jar
+767b8c6c7000-767b8c6c8000 r--s 00003000 09:03 49023623                   /home/minecraft/multicraft/servers/server46738/mods/DefaultOptions_1.10.2-6.1.5.jar
+767b8c6c8000-767b8c6cc000 r--s 00013000 09:03 49023579                   /home/minecraft/multicraft/servers/server46738/mods/AppleCore-mc1.10.2-2.2.2.jar
+767b8c6cc000-767b8c6ce000 r--s 0004c000 09:03 47192840                   /home/minecraft/multicraft/servers/server46738/libraries/java3d/vecmath/1.5.2/vecmath-1.5.2.jar
+767b8c6ce000-767b8c6d9000 r--s 000a9000 09:03 49023571                   /home/minecraft/multicraft/servers/server46738/libraries/org/scala-lang/scala-swing_2.11/1.0.1/scala-swing_2.11-1.0.1.jar
+767b8c6d9000-767b8c6e4000 r--s 0005f000 09:03 48653206                   /home/minecraft/multicraft/servers/server46738/libraries/org/scala-lang/scala-parser-combinators_2.11/1.0.1/scala-parser-combinators_2.11-1.0.1.jar
+767b8c6e4000-767b8c6e5000 ---p 00000000 00:00 0 
+767b8c6e5000-767b8c7e5000 rw-p 00000000 00:00 0 
+767b8c7e5000-767b8c7e6000 r--p 00000000 09:02 264991                     /usr/share/locale/en_GB/LC_MESSAGES/libc.mo
+767b8c7e6000-767b8c7e8000 r--s 0000e000 09:03 48653176                   /home/minecraft/multicraft/servers/server46738/libraries/net/sf/jopt-simple/jopt-simple/4.6/jopt-simple-4.6.jar
+767b8c7e8000-767b8c7ee000 r--s 0002e000 09:03 48653194                   /home/minecraft/multicraft/servers/server46738/libraries/org/scala-lang/plugins/scala-continuations-plugin_2.11.1/1.0.2/scala-continuations-plugin_2.11.1-1.0.2.jar
+767b8c7ee000-767b8c9f0000 rw-p 00000000 00:00 0 
+767b8c9f0000-767b8dd93000 ---p 00000000 00:00 0 
+767b8dd93000-767b8ddfe000 rw-p 00000000 00:00 0 
+767b8ddfe000-767b8e153000 ---p 00000000 00:00 0 
+767b8e153000-767b8e16e000 r-xp 00000000 09:02 152130                     /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libzip.so
+767b8e16e000-767b8e36e000 ---p 0001b000 09:02 152130                     /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libzip.so
+767b8e36e000-767b8e36f000 rw-p 0001b000 09:02 152130                     /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libzip.so
+767b8e36f000-767b8e37a000 r-xp 00000000 09:02 916121                     /lib/x86_64-linux-gnu/libnss_files-2.19.so
+767b8e37a000-767b8e579000 ---p 0000b000 09:02 916121                     /lib/x86_64-linux-gnu/libnss_files-2.19.so
+767b8e579000-767b8e57a000 r--p 0000a000 09:02 916121                     /lib/x86_64-linux-gnu/libnss_files-2.19.so
+767b8e57a000-767b8e57b000 rw-p 0000b000 09:02 916121                     /lib/x86_64-linux-gnu/libnss_files-2.19.so
+767b8e57b000-767b8e585000 r-xp 00000000 09:02 916123                     /lib/x86_64-linux-gnu/libnss_nis-2.19.so
+767b8e585000-767b8e784000 ---p 0000a000 09:02 916123                     /lib/x86_64-linux-gnu/libnss_nis-2.19.so
+767b8e784000-767b8e785000 r--p 00009000 09:02 916123                     /lib/x86_64-linux-gnu/libnss_nis-2.19.so
+767b8e785000-767b8e786000 rw-p 0000a000 09:02 916123                     /lib/x86_64-linux-gnu/libnss_nis-2.19.so
+767b8e786000-767b8e79b000 r-xp 00000000 09:02 916118                     /lib/x86_64-linux-gnu/libnsl-2.19.so
+767b8e79b000-767b8e99a000 ---p 00015000 09:02 916118                     /lib/x86_64-linux-gnu/libnsl-2.19.so
+767b8e99a000-767b8e99b000 r--p 00014000 09:02 916118                     /lib/x86_64-linux-gnu/libnsl-2.19.so
+767b8e99b000-767b8e99c000 rw-p 00015000 09:02 916118                     /lib/x86_64-linux-gnu/libnsl-2.19.so
+767b8e99c000-767b8e99e000 rw-p 00000000 00:00 0 
+767b8e99e000-767b8e9a5000 r-xp 00000000 09:02 916119                     /lib/x86_64-linux-gnu/libnss_compat-2.19.so
+767b8e9a5000-767b8eba4000 ---p 00007000 09:02 916119                     /lib/x86_64-linux-gnu/libnss_compat-2.19.so
+767b8eba4000-767b8eba5000 r--p 00006000 09:02 916119                     /lib/x86_64-linux-gnu/libnss_compat-2.19.so
+767b8eba5000-767b8eba6000 rw-p 00007000 09:02 916119                     /lib/x86_64-linux-gnu/libnss_compat-2.19.so
+767b8eba6000-767b8ebd1000 r-xp 00000000 09:02 152124                     /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libjava.so
+767b8ebd1000-767b8edd0000 ---p 0002b000 09:02 152124                     /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libjava.so
+767b8edd0000-767b8edd2000 rw-p 0002a000 09:02 152124                     /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libjava.so
+767b8edd2000-767b8eddf000 r-xp 00000000 09:02 152129                     /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libverify.so
+767b8eddf000-767b8efdf000 ---p 0000d000 09:02 152129                     /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libverify.so
+767b8efdf000-767b8efe1000 rw-p 0000d000 09:02 152129                     /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libverify.so
+767b8efe1000-767b8efe8000 r-xp 00000000 09:02 916127                     /lib/x86_64-linux-gnu/librt-2.19.so
+767b8efe8000-767b8f1e7000 ---p 00007000 09:02 916127                     /lib/x86_64-linux-gnu/librt-2.19.so
+767b8f1e7000-767b8f1e8000 r--p 00006000 09:02 916127                     /lib/x86_64-linux-gnu/librt-2.19.so
+767b8f1e8000-767b8f1e9000 rw-p 00007000 09:02 916127                     /lib/x86_64-linux-gnu/librt-2.19.so
+767b8f1e9000-767b8f2e9000 r-xp 00000000 09:02 916116                     /lib/x86_64-linux-gnu/libm-2.19.so
+767b8f2e9000-767b8f4e8000 ---p 00100000 09:02 916116                     /lib/x86_64-linux-gnu/libm-2.19.so
+767b8f4e8000-767b8f4e9000 r--p 000ff000 09:02 916116                     /lib/x86_64-linux-gnu/libm-2.19.so
+767b8f4e9000-767b8f4ea000 rw-p 00100000 09:02 916116                     /lib/x86_64-linux-gnu/libm-2.19.so
+767b8f4ea000-767b901c6000 r-xp 00000000 09:02 152150                     /usr/lib/jvm/java-8-oracle/jre/lib/amd64/server/libjvm.so
+767b901c6000-767b903c6000 ---p 00cdc000 09:02 152150                     /usr/lib/jvm/java-8-oracle/jre/lib/amd64/server/libjvm.so
+767b903c6000-767b904a0000 rw-p 00cdc000 09:02 152150                     /usr/lib/jvm/java-8-oracle/jre/lib/amd64/server/libjvm.so
+767b904a0000-767b904eb000 rw-p 00000000 00:00 0 
+767b904eb000-767b9068c000 r-xp 00000000 09:02 916112                     /lib/x86_64-linux-gnu/libc-2.19.so
+767b9068c000-767b9088c000 ---p 001a1000 09:02 916112                     /lib/x86_64-linux-gnu/libc-2.19.so
+767b9088c000-767b90890000 r--p 001a1000 09:02 916112                     /lib/x86_64-linux-gnu/libc-2.19.so
+767b90890000-767b90892000 rw-p 001a5000 09:02 916112                     /lib/x86_64-linux-gnu/libc-2.19.so
+767b90892000-767b90896000 rw-p 00000000 00:00 0 
+767b90896000-767b90899000 r-xp 00000000 09:02 916115                     /lib/x86_64-linux-gnu/libdl-2.19.so
+767b90899000-767b90a98000 ---p 00003000 09:02 916115                     /lib/x86_64-linux-gnu/libdl-2.19.so
+767b90a98000-767b90a99000 r--p 00002000 09:02 916115                     /lib/x86_64-linux-gnu/libdl-2.19.so
+767b90a99000-767b90a9a000 rw-p 00003000 09:02 916115                     /lib/x86_64-linux-gnu/libdl-2.19.so
+767b90a9a000-767b90ab0000 r-xp 00000000 09:02 152147                     /usr/lib/jvm/java-8-oracle/jre/lib/amd64/jli/libjli.so
+767b90ab0000-767b90caf000 ---p 00016000 09:02 152147                     /usr/lib/jvm/java-8-oracle/jre/lib/amd64/jli/libjli.so
+767b90caf000-767b90cb0000 rw-p 00015000 09:02 152147                     /usr/lib/jvm/java-8-oracle/jre/lib/amd64/jli/libjli.so
+767b90cb0000-767b90cc8000 r-xp 00000000 09:02 916106                     /lib/x86_64-linux-gnu/libpthread-2.19.so
+767b90cc8000-767b90ec7000 ---p 00018000 09:02 916106                     /lib/x86_64-linux-gnu/libpthread-2.19.so
+767b90ec7000-767b90ec8000 r--p 00017000 09:02 916106                     /lib/x86_64-linux-gnu/libpthread-2.19.so
+767b90ec8000-767b90ec9000 rw-p 00018000 09:02 916106                     /lib/x86_64-linux-gnu/libpthread-2.19.so
+767b90ec9000-767b90ecd000 rw-p 00000000 00:00 0 
+767b90ecd000-767b90eee000 r-xp 00000000 09:02 916108                     /lib/x86_64-linux-gnu/ld-2.19.so
+767b90eee000-767b90ef0000 r--s 00005000 09:03 48653191                   /home/minecraft/multicraft/servers/server46738/libraries/org/scala-lang/plugins/scala-continuations-library_2.11/1.0.2/scala-continuations-library_2.11-1.0.2.jar
+767b90ef0000-767b90ef2000 r--s 0000d000 09:03 48653197                   /home/minecraft/multicraft/servers/server46738/libraries/org/scala-lang/scala-actors-migration_2.11/1.1.0/scala-actors-migration_2.11-1.1.0.jar
+767b90ef2000-767b90ef5000 ---p 00000000 00:00 0 
+767b90ef5000-767b90ff3000 rw-p 00000000 00:00 0 
+767b90ff3000-767b90ff4000 r--s 00001000 09:03 47192866                   /home/minecraft/multicraft/servers/server46738/libraries/lzma/lzma/0.0.1/lzma-0.0.1.jar
+767b90ff4000-767b90ff8000 r--s 00032000 09:03 47192834                   /home/minecraft/multicraft/servers/server46738/libraries/com/typesafe/config/1.2.1/config-1.2.1.jar
+767b90ff8000-767b90ffc000 r--s 00039000 09:03 47192849                   /home/minecraft/multicraft/servers/server46738/libraries/jline/jline/2.13/jline-2.13.jar
+767b90ffc000-767b91001000 r--s 00036000 09:03 48653186                   /home/minecraft/multicraft/servers/server46738/libraries/org/ow2/asm/asm-all/5.0.3/asm-all-5.0.3.jar
+767b91001000-767b91003000 r--s 00007000 09:03 47192878                   /home/minecraft/multicraft/servers/server46738/libraries/net/minecraft/launchwrapper/1.12/launchwrapper-1.12.jar
+767b91003000-767b910d4000 rw-p 00000000 00:00 0 
+767b910d4000-767b910dc000 rw-s 00000000 09:02 652969                     /tmp/hsperfdata_mc46738/32757
+767b910dc000-767b910e0000 rw-p 00000000 00:00 0 
+767b910e0000-767b910e5000 r--s 0009d000 09:02 151924                     /usr/lib/jvm/java-8-oracle/jre/lib/jsse.jar
+767b910e5000-767b910e6000 rw-p 00000000 00:00 0 
+767b910e6000-767b910e7000 ---p 00000000 00:00 0 
+767b910e7000-767b910e9000 rw-p 00000000 00:00 0 
+767b910e9000-767b910eb000 r--p 00000000 00:00 0                          [vvar]
+767b910eb000-767b910ed000 r-xp 00000000 00:00 0                          [vdso]
+767b910ed000-767b910ee000 r--p 00020000 09:02 916108                     /lib/x86_64-linux-gnu/ld-2.19.so
+767b910ee000-767b910ef000 rw-p 00021000 09:02 916108                     /lib/x86_64-linux-gnu/ld-2.19.so
+767b910ef000-767b910f0000 rw-p 00000000 00:00 0 
+774d8ff4f000-774d8ff70000 rw-p 00000000 00:00 0                          [stack]
+ffffffffff600000-ffffffffff601000 r--p 00000000 00:00 0                  [vsyscall]
+
+VM Arguments:
+jvm_args: -Xmx16384M -Xms1024M -XX:ParallelGCThreads=2 -XX:ThreadStackSize=512 -Djline.terminal=jline.UnsupportedTerminal 
+java_command: /home/minecraft/multicraft/servers/server46738/custom.jar nogui
+java_class_path (initial): /home/minecraft/multicraft/servers/server46738/custom.jar
+Launcher Type: SUN_STANDARD
+
+Environment Variables:
+PATH=/usr/local/bin:/usr/bin:/bin
+
+Signal Handlers:
+SIGSEGV: [libjvm.so+0xad2a40], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGBUS: [libjvm.so+0xad2a40], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGFPE: [libjvm.so+0x92a610], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGPIPE: [libjvm.so+0x92a610], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGXFSZ: [libjvm.so+0x92a610], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGILL: [libjvm.so+0x92a610], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGUSR1: SIG_DFL, sa_mask[0]=00000000000000000000000000000000, sa_flags=none
+SIGUSR2: [libjvm.so+0x92be70], sa_mask[0]=00000000000000000000000000000000, sa_flags=SA_RESTART|SA_SIGINFO
+SIGHUP: [libjvm.so+0x92d270], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGINT: SIG_IGN, sa_mask[0]=00000000000000000000000000000000, sa_flags=none
+SIGTERM: [libjvm.so+0x92d270], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGQUIT: [libjvm.so+0x92d270], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+
+
+---------------  S Y S T E M  ---------------
+
+OS:DISTRIB_ID=Debian
+DISTRIB_RELEASE=7
+DISTRIB_CODENAME=
+DISTRIB_DESCRIPTION=
+
+uname:Linux 4.8.13-xxxx-grs-ipv6-64 #10 SMP Fri Dec 9 18:00:05 CET 2016 x86_64
+libc:glibc 2.19 NPTL 2.19 
+rlimit: STACK 8192k, CORE 0k, NPROC 257514, NOFILE 65536, AS infinity
+load average:8.69 5.99 12.51
+
+/proc/meminfo:
+MemTotal:       65994144 kB
+MemFree:         1004880 kB
+MemAvailable:     832456 kB
+Buffers:           41968 kB
+Cached:          1658104 kB
+SwapCached:        13908 kB
+Active:         61023836 kB
+Inactive:        3424924 kB
+Active(anon):   60783756 kB
+Inactive(anon):  3338164 kB
+Active(file):     240080 kB
+Inactive(file):    86760 kB
+Unevictable:           0 kB
+Mlocked:               0 kB
+SwapTotal:       1046520 kB
+SwapFree:            624 kB
+Dirty:             13840 kB
+Writeback:             0 kB
+AnonPages:      62735152 kB
+Mapped:           151668 kB
+Shmem:           1373224 kB
+Slab:             152772 kB
+SReclaimable:      58252 kB
+SUnreclaim:        94520 kB
+KernelStack:       33728 kB
+PageTables:       156556 kB
+NFS_Unstable:          0 kB
+Bounce:                0 kB
+WritebackTmp:          0 kB
+CommitLimit:    34043592 kB
+Committed_AS:   89580428 kB
+VmallocTotal:   34359738367 kB
+VmallocUsed:           0 kB
+VmallocChunk:          0 kB
+HardwareCorrupted:     0 kB
+DirectMap4k:       10540 kB
+DirectMap2M:     2052096 kB
+DirectMap1G:    67108864 kB
+
+
+CPU:total 8 (initial active 8) (4 cores per cpu, 2 threads per core) family 6 model 62 stepping 4, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, avx, aes, clmul, erms, ht, tsc, tscinvbit
+
+/proc/cpuinfo:
+processor	: 0
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 62
+model name	: Intel(R) Xeon(R) CPU E5-1620 v2 @ 3.70GHz
+stepping	: 4
+microcode	: 0x416
+cpu MHz		: 3699.774
+cache size	: 10240 KB
+physical id	: 0
+siblings	: 8
+core id		: 0
+cpu cores	: 4
+apicid		: 0
+initial apicid	: 0
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm epb tpr_shadow vnmi flexpriority ept vpid fsgsbase smep erms xsaveopt dtherm ida arat pln pts
+bugs		:
+bogomips	: 7400.09
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 1
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 62
+model name	: Intel(R) Xeon(R) CPU E5-1620 v2 @ 3.70GHz
+stepping	: 4
+microcode	: 0x416
+cpu MHz		: 3700.000
+cache size	: 10240 KB
+physical id	: 0
+siblings	: 8
+core id		: 1
+cpu cores	: 4
+apicid		: 2
+initial apicid	: 2
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm epb tpr_shadow vnmi flexpriority ept vpid fsgsbase smep erms xsaveopt dtherm ida arat pln pts
+bugs		:
+bogomips	: 7401.08
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 2
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 62
+model name	: Intel(R) Xeon(R) CPU E5-1620 v2 @ 3.70GHz
+stepping	: 4
+microcode	: 0x416
+cpu MHz		: 3700.000
+cache size	: 10240 KB
+physical id	: 0
+siblings	: 8
+core id		: 2
+cpu cores	: 4
+apicid		: 4
+initial apicid	: 4
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm epb tpr_shadow vnmi flexpriority ept vpid fsgsbase smep erms xsaveopt dtherm ida arat pln pts
+bugs		:
+bogomips	: 7401.17
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 3
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 62
+model name	: Intel(R) Xeon(R) CPU E5-1620 v2 @ 3.70GHz
+stepping	: 4
+microcode	: 0x416
+cpu MHz		: 3700.000
+cache size	: 10240 KB
+physical id	: 0
+siblings	: 8
+core id		: 3
+cpu cores	: 4
+apicid		: 6
+initial apicid	: 6
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm epb tpr_shadow vnmi flexpriority ept vpid fsgsbase smep erms xsaveopt dtherm ida arat pln pts
+bugs		:
+bogomips	: 7401.17
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 4
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 62
+model name	: Intel(R) Xeon(R) CPU E5-1620 v2 @ 3.70GHz
+stepping	: 4
+microcode	: 0x416
+cpu MHz		: 3700.000
+cache size	: 10240 KB
+physical id	: 0
+siblings	: 8
+core id		: 0
+cpu cores	: 4
+apicid		: 1
+initial apicid	: 1
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm epb tpr_shadow vnmi flexpriority ept vpid fsgsbase smep erms xsaveopt dtherm ida arat pln pts
+bugs		:
+bogomips	: 7401.76
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 5
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 62
+model name	: Intel(R) Xeon(R) CPU E5-1620 v2 @ 3.70GHz
+stepping	: 4
+microcode	: 0x416
+cpu MHz		: 3700.000
+cache size	: 10240 KB
+physical id	: 0
+siblings	: 8
+core id		: 1
+cpu cores	: 4
+apicid		: 3
+initial apicid	: 3
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm epb tpr_shadow vnmi flexpriority ept vpid fsgsbase smep erms xsaveopt dtherm ida arat pln pts
+bugs		:
+bogomips	: 7401.29
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 6
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 62
+model name	: Intel(R) Xeon(R) CPU E5-1620 v2 @ 3.70GHz
+stepping	: 4
+microcode	: 0x416
+cpu MHz		: 3699.774
+cache size	: 10240 KB
+physical id	: 0
+siblings	: 8
+core id		: 2
+cpu cores	: 4
+apicid		: 5
+initial apicid	: 5
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm epb tpr_shadow vnmi flexpriority ept vpid fsgsbase smep erms xsaveopt dtherm ida arat pln pts
+bugs		:
+bogomips	: 7401.26
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 7
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 62
+model name	: Intel(R) Xeon(R) CPU E5-1620 v2 @ 3.70GHz
+stepping	: 4
+microcode	: 0x416
+cpu MHz		: 3699.774
+cache size	: 10240 KB
+physical id	: 0
+siblings	: 8
+core id		: 3
+cpu cores	: 4
+apicid		: 7
+initial apicid	: 7
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm epb tpr_shadow vnmi flexpriority ept vpid fsgsbase smep erms xsaveopt dtherm ida arat pln pts
+bugs		:
+bogomips	: 7401.24
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+
+
+Memory: 4k page, physical 65994144k(1004880k free), swap 1046520k(624k free)
+
+vm_info: Java HotSpot(TM) 64-Bit Server VM (25.181-b13) for linux-amd64 JRE (1.8.0_181-b13), built on Jul  7 2018 00:56:38 by "java_re" with gcc 4.3.0 20080428 (Red Hat 4.3.0-8)
+
+time: Sat Jan 12 04:43:56 2019
+elapsed time: 48 seconds (0d 0h 0m 48s)
+
